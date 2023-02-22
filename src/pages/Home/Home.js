@@ -1,6 +1,7 @@
-import "./Home.css";
-import { useEffect, useState } from "react";
+import "./Home.scss";
+import { useState } from "react";
 import { downloadZip } from "client-zip";
+import Thumbnail from "../../components/Thumbnail/Thumbnail";
 
 function Home() {
     const [selectedImages, setSelectedImages] = useState([]);
@@ -54,19 +55,9 @@ function Home() {
     };
 
     return (
-      <div className="App">
-        <h1>Photo organizer</h1>
+      <div className="home">
         { selectedImages && selectedImages.map((image) =>
-          <img
-          name={image.name}
-          key={image.id}
-          draggable={true}
-          onDragOver={event => event.preventDefault()}
-          onDragStart={handleDrag}
-          onDrop={handleDrop}
-          alt={image.name}
-          width={"250px"}
-          src={URL.createObjectURL(image)} />
+          <Thumbnail key={image.id} image={image} handleDrag={handleDrag} handleDrop={handleDrop} />
         )}
         <br />
         <br />
