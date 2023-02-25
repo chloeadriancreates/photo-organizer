@@ -37,6 +37,10 @@ function Home() {
       return newId;
     };
 
+    const deleteImage = (toDelete) => {
+      setSelectedImages(selectedImages.filter(image => image !== toDelete));
+    };
+
     const handleDrag = (event) => {
       setDragged(event.currentTarget.name);
     };
@@ -69,7 +73,7 @@ function Home() {
       <div className="home">
         <div className="home-images">
           { selectedImages && selectedImages.map((image) =>
-            <Thumbnail key={image.id} image={image} handleDrag={handleDrag} handleDrop={handleDrop} />
+            <Thumbnail key={image.id} image={image} handleDrag={handleDrag} handleDrop={handleDrop} deleteImage={deleteImage} />
           )}
         </div>
         <input

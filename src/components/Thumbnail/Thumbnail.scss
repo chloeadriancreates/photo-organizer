@@ -1,7 +1,11 @@
+@use "../../utils/colors";
+@use "../../utils/fonts";
+@use "../../utils/mixins";
+
 .thumbnail {
+    @include mixins.flex(column, center, center);
+    position: relative;
     aspect-ratio: 1;
-    object-fit: cover;
-    object-position: center;
     width: 18%;
     margin-bottom: 2.5%;
 
@@ -11,5 +15,22 @@
 
     &:last-child {
         margin-right: auto;
+    }
+
+    &-img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &-button {
+        width: 100%;
+        border: 0;
+        background: colors.$dark;
+        font-family: fonts.$body;
+        font-size: 16px;
+        color: white;
+        padding: 5px;
     }
 }
