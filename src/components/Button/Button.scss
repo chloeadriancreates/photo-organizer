@@ -1,0 +1,12 @@
+@use '../../utils/colors';
+@use '../../utils/fonts';
+
+.button {
+    background-color: colors.$dark;
+    color: colors.$light;
+    border: none;
+    font-family: fonts.$body;
+    font-size: 24px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}

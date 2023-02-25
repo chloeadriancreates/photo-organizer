@@ -2,5 +2,14 @@
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
-    width: 30%;
+    width: 18%;
+    margin-bottom: 2.5%;
+
+    &:nth-child(5n+1), &:nth-child(5n+2), &:nth-child(5n+3), &:nth-child(5n+4) {
+        margin-right: 2.5%;
+    }
+
+    &:last-child {
+        margin-right: auto;
+    }
 }

@@ -1,6 +1,6 @@
 @use './utils/colors';
 @use './utils/mixins';
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Source+Sans+Pro&display=swap');
+@use './utils/fonts';
 
 body {
   @include mixins.flex;
@@ -9,7 +9,7 @@ body {
 }
 
 .title {
-  font-family: 'Playfair Display';
+  font-family: fonts.$heading;
   font-size: 50px;
   color: colors.$dark;
   text-align: center;

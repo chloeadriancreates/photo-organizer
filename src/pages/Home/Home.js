@@ -2,6 +2,7 @@ import "./Home.scss";
 import { useState } from "react";
 import { downloadZip } from "client-zip";
 import Thumbnail from "../../components/Thumbnail/Thumbnail";
+import Button from "../../components/Button/Button";
 
 function Home() {
     const [selectedImages, setSelectedImages] = useState([]);
@@ -56,18 +57,25 @@ function Home() {
 
     return (
       <div className="home">
-        { selectedImages && selectedImages.map((image) =>
-          <Thumbnail key={image.id} image={image} handleDrag={handleDrag} handleDrop={handleDrop} />
-        )}
-        <br />
-        <br />
+        <div className="home-images">
+          { selectedImages && selectedImages.map((image) =>
+            <Thumbnail key={image.id} image={image} handleDrag={handleDrag} handleDrop={handleDrop} />
+          )}
+        </div>
         <input
+          id="upload-hidden"
+          tabIndex="-1"
           type="file"
-          name="myImage"
+          name="photos"
           multiple
           onChange={event => uploadImages(event.target.files)}
         />
-        <button onClick={downloadImages}>My Example Doc</button>
+        <div className="home-buttons">
+          <Button content="Upload photos" handleClick={() => {
+            document.getElementById("upload-hidden").click();
+          }} />
+          <Button content="Download zip" handleClick={downloadImages} />
+        </div>
       </div>
     );
 }

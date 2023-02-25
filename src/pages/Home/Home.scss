@@ -1,0 +1,27 @@
+@use "../../utils/mixins";
+
+.home {
+  @include mixins.flex(column, center, center);
+  margin: 80px;
+
+  &-images {
+    @include mixins.flex(row, flex-start, center);
+    flex-wrap: wrap;
+  }
+
+  &-buttons {
+    @include mixins.flex;
+    margin-top: 50px;
+
+    & > *:first-child {
+      margin-right: 20px;
+    }
+  }
+}
+
+#upload-hidden {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
