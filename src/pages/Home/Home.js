@@ -17,6 +17,26 @@ function Home() {
       setSelectedImages(newArray);
     };
 
+    const downloadImages = async() => {
+      const blob = await downloadZip(selectedImages).blob();
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "organized-photos.zip";
+      link.click();
+      link.remove();
+    };
+
+    const refactorId = (id) => {
+      const length = (id + 1).toString().length;
+      const leftover = 5 - length;
+      let newId = "";
+      for(let i = 0; i < leftover; i++) {
+        newId += 0;
+      }
+      newId += id;
+      return newId;
+    };
+
     const handleDrag = (event) => {
       setDragged(event.currentTarget.name);
     };
@@ -27,17 +47,6 @@ function Home() {
 
       const dragImageId = dragImage.id;
       const dropImageId = dropImage.id;
-
-      const refactorId = (id) => {
-        const length = (id + 1).toString().length;
-        const leftover = 5 - length;
-        let newId = "";
-        for(let i = 0; i < leftover; i++) {
-          newId += 0;
-        }
-        newId += id;
-        return newId;
-      };
 
       const newImages = selectedImages.map(image => {
         if (image.name === dragged) {
@@ -54,15 +63,6 @@ function Home() {
       });
 
       setSelectedImages(newImages.sort((a, b) => a.id - b.id));
-    };
-
-    const downloadImages = async() => {
-      const blob = await downloadZip(selectedImages).blob();
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "images.zip";
-      link.click();
-      link.remove();
     };
 
     return (
