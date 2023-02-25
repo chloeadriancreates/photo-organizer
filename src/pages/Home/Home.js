@@ -28,8 +28,18 @@ function Home() {
       const dragImageId = dragImage.id;
       const dropImageId = dropImage.id;
 
-      const newImages = selectedImages
-      .map(image => {
+      const refactorId = (id) => {
+        const length = (id + 1).toString().length;
+        const leftover = 5 - length;
+        let newId = "";
+        for(let i = 0; i < leftover; i++) {
+          newId += 0;
+        }
+        newId += id;
+        return newId;
+      };
+
+      const newImages = selectedImages.map(image => {
         if (image.name === dragged) {
           image.id = dropImageId;
         }
@@ -38,7 +48,7 @@ function Home() {
         }
 
         const extension = image.name.split(".").pop();
-        const newImage = new File([image], `Photo--${image.id + 1}.${extension}`, {type: image.type});
+        const newImage = new File([image], `IMG_${refactorId(image.id)}.${extension}`, {type: image.type});
         newImage.id = image.id;
         return newImage;
       });
