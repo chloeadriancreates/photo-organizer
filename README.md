@@ -1,5 +1,6 @@
 ![Banner](READMEbanner.jpg)
 
+## Presentation
 I recently took on the mountain of a task that was scanning and backing up every single family photo in my possession – to make it easier to organize pictures by album, I created this React app that allows you to drag and drop pictures in the order you want, and renames them before download so they stay in that order on your device!
 
 ## Prerequisites
