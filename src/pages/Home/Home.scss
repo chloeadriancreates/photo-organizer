@@ -5,8 +5,21 @@
   margin: 80px;
 
   &-images {
-    @include mixins.flex(row, flex-start, center);
-    flex-wrap: wrap;
+    display: grid;
+    grid-gap: 60px;
+    grid-template-columns: repeat(1, 1fr);
+
+    @media screen and (min-width: 800px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 1600px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   &-buttons {
