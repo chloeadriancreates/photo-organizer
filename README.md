@@ -10,8 +10,8 @@ I recently took on the mountain of a task that was scanning and backing up every
 - [React (version 18.2.0)](https://react.dev/)
 
 ## Getting started
-    npm install
-    npm start
+- Run `$ npm install` to install all dependencies
+- Run `$ npm start` to see the project!
 
 ## Thanks for reading, and happy coding!  
 Chloé Adrian
